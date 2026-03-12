@@ -1,0 +1,359 @@
+/* ========================================================
+   MODERN UI OVERRIDES (DARK THEME + GLASSMORPHISM)
+   ======================================================== */
+
+:root {
+    --bg-dark: #0a0f16;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    --accent-glow: 0 0 15px rgba(0, 242, 254, 0.4);
+
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Base Overrides */
+body,
+input,
+select,
+textarea {
+    background-color: var(--bg-dark) !important;
+    background-image: none !important;
+    color: var(--text-main) !important;
+    font-family: var(--font-body) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#logo {
+    font-family: var(--font-heading) !important;
+    color: #fff !important;
+}
+
+/* Sections & Wrappers */
+.wrapper {
+    background: transparent !important;
+    border: none !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Add a subtle ambient glow to the background */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 242, 254, 0.03) 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* =========================
+   HEADER & NAVIGATION
+   ========================= */
+#header.center {
+    padding: 60px 0 40px 0;
+    background: transparent !important;
+    text-align: center;
+    border-bottom: 1px solid var(--border-glass);
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Photo */
+.profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    /* Glowing gradient border effect */
+    padding: 4px;
+    background: var(--accent-gradient);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    box-shadow: var(--accent-glow);
+}
+
+.profile-photo:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+}
+
+/* Name (Main Title) */
+#logo {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-top: 15px;
+    letter-spacing: -0.5px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Tagline */
+.tagline {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Navigation Alignment */
+#nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#nav ul li {
+    margin: 0;
+}
+
+#nav a {
+    color: var(--text-muted) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem;
+    padding: 10px 22px;
+    border-radius: 30px;
+    transition: all 0.3s ease !important;
+    display: inline-block;
+    border: 1px solid transparent !important;
+}
+
+#nav a:hover,
+#nav li.current a {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-glass) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+#nav li.current a {
+    background: rgba(0, 242, 254, 0.1);
+    border-color: rgba(0, 242, 254, 0.3) !important;
+    box-shadow: var(--accent-glow);
+}
+
+/* headers and section titles */
+header.major {
+    margin-bottom: 2em;
+}
+
+header.major h2 {
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    border-bottom: none !important;
+    /* Remove main.css border if any */
+}
+
+header.major h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    box-shadow: var(--accent-glow);
+}
+
+/* For left aligned headers */
+header.major:not(.center) h2::after {
+    left: 0;
+    transform: none;
+}
+
+/* =========================
+   PROJECT CARDS (Glassmorphism)
+   ========================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15), 0 5px 15px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.project-card img {
+    border-radius: 10px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.02);
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Buttons */
+.button {
+    background: var(--bg-card) !important;
+    color: #fff !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: 30px !important;
+    padding: 12px 28px !important;
+    font-weight: 500 !important;
+    font-family: var(--font-body) !important;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease !important;
+    display: inline-block;
+    text-align: center;
+    box-shadow: none !important;
+    text-decoration: none !important;
+}
+
+.button:hover {
+    background: var(--accent-gradient) !important;
+    border-color: transparent !important;
+    box-shadow: var(--accent-glow) !important;
+    transform: translateY(-2px);
+    color: #fff !important;
+}
+
+/* =========================
+   SKILLS TAGS (Glassmorphism)
+   ========================= */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.skills-tags span {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skills-tags span:hover {
+    background: rgba(0, 242, 254, 0.1);
+    border-color: rgba(0, 242, 254, 0.4);
+    color: #fff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--accent-glow);
+}
+
+/* =========================
+   PUBLICATIONS & LISTS
+   ========================= */
+ol,
+ul {
+    color: var(--text-muted);
+}
+
+ol li,
+ul li {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+ol li i {
+    color: #fff;
+}
+
+#fundamentals ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer Fixes */
+#footer {
+    background: #06090d !important;
+    border-top: 1px solid var(--border-glass);
+    padding: 40px 0 !important;
+    color: var(--text-muted) !important;
+}
+
+#footer ul.icons li a {
+    color: var(--text-muted) !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-glass) !important;
+}
+
+#footer ul.icons li a:hover {
+    color: #fff !important;
+    border-color: rgba(0, 242, 254, 0.5) !important;
+    background: rgba(0, 242, 254, 0.1) !important;
+    box-shadow: var(--accent-glow);
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+.fade-up-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up-element.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}

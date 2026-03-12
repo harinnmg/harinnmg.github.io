@@ -7,78 +7,19 @@
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Modern Theme -->
+    <link rel="stylesheet" href="assets/css/custom.css">
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-/* ========================= */
-/* Header Name and Tagline Alignment */
-/* ========================= */
 
-#header.center {
-    padding: 40px 0 25px 0;
-    background: #111;
-    text-align: center;
-}
-
-/* Profile Photo */
-.profile-photo {
-    width: 130px;
-    height: 130px;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile-photo:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-/* Name (Main Title) */
-#logo {
-    font-size: 2rem;            /* Matches section headings */
-    font-weight: 600;
-    margin-top: 10px;
-    color: #fff;
-    letter-spacing: 1px;
-    line-height: 1.3;
-}
-
-/* Tagline / Subtitle */
-.tagline {
-    font-size: 1rem;            /* Harmonizes with body text */
-    color: #aaa;
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-
-/* Navigation Alignment */
-#nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-#nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-#nav a:hover {
-    color: #1da1f2;
-}
-
-
-    </style>
 </head>
 <body class="is-preload">
 
@@ -262,6 +203,31 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!-- Animation Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Add animation classes to specific elements
+        document.querySelectorAll('section.wrapper, .project-card, .skills-tags span').forEach((el) => {
+            el.classList.add('fade-up-element');
+            observer.observe(el);
+        });
+    });
+</script>
 
 </body>
 </html>
