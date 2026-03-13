@@ -267,6 +267,29 @@ header.major:not(.center) h2::after {
     color: #fff !important;
 }
 
+/* Hero primary/secondary actions */
+.hero-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-actions .button.primary {
+    background: var(--accent-gradient) !important;
+    border-color: transparent !important;
+    box-shadow: var(--accent-glow) !important;
+}
+
+.hero-actions .button.secondary {
+    background: var(--bg-card) !important;
+}
+
+.hero-actions .button.secondary:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
 /* =========================
    SKILLS TAGS (Glassmorphism)
    ========================= */
@@ -344,6 +367,34 @@ ol li i {
     box-shadow: var(--accent-glow);
 }
 
+/* Contact section social icons */
+#contact .social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+#contact .social-icons .icon {
+    background: var(--bg-card) !important;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-glass) !important;
+    color: var(--text-muted) !important;
+    transition: all 0.3s ease;
+}
+
+#contact .social-icons .icon:hover {
+    color: #fff !important;
+    border-color: rgba(0, 242, 254, 0.5) !important;
+    background: rgba(0, 242, 254, 0.1) !important;
+    box-shadow: var(--accent-glow);
+}
+
 /* =========================
    ANIMATIONS
    ========================= */
@@ -356,4 +407,51 @@ ol li i {
 .fade-up-element.animate-in {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE TWEAKS
+   ========================= */
+@media screen and (max-width: 980px) {
+    #header.center {
+        padding: 48px 24px 32px 24px;
+    }
+
+    #logo {
+        font-size: 2.1rem !important;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .tagline {
+        font-size: 0.98rem;
+        padding: 0 10px;
+    }
+
+    #nav ul {
+        gap: 8px;
+    }
+
+    #nav a {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .skills-tags {
+        justify-content: flex-start;
+    }
+
+    .skills-tags span {
+        width: 100%;
+        text-align: center;
+    }
 }
