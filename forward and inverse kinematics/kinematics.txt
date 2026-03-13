@@ -1,0 +1,43 @@
+Here is a **refined GitHub / portfolio-ready version** of your updated description. I kept it **technical, concise, and professional**, while still showing the experimental depth.
+
+---
+
+### **Kinematics and Trajectory Planning for the XArm 5 Lite Manipulator**
+
+This project presents a series of robotics experiments focused on **kinematic modeling, experimental validation, and joint-space trajectory planning** for the **5-DoF XArm 5 Lite robotic manipulator**.
+
+#### **Forward Kinematics and DH Parameter Derivation**
+
+The first phase of the project involved deriving the **Denavit–Hartenberg (DH) parameters** for the manipulator and establishing the **forward kinematics model**. To accurately represent the physical robot, joint angle offsets (**T2_offset, T3_offset, T4_offset**) were introduced to compensate for the difference between the robot’s mathematical reference configuration and its actual mechanical zero position.
+
+Using these corrected joint variables, **MATLAB scripts** were developed to define the DH parameters (*d, θ, a, α*) and compute the individual homogeneous transformation matrices (**M1–M5**). Multiplying these matrices yielded the final transformation representing the **end-effector pose**.
+
+The theoretical model was validated experimentally using the **physical XArm 5 Lite robot** through **XArm Studio**, where joint configurations were set using the interface sliders and the resulting end-effector position was compared with the MATLAB calculations.
+
+#### **Joint Space Trajectory Planning**
+
+The second phase focused on **joint-space trajectory generation** to achieve smooth motion between two joint configurations. A **trapezoidal velocity profile** was implemented to move the first joint from **30° to 75°**, dividing the motion into three phases:
+
+* Acceleration
+* Constant velocity
+* Deceleration
+
+Based on the selected velocity and acceleration parameters, the theoretical motion duration was calculated as **3.25 seconds**. The trajectory was then executed on the physical robot, and the actual execution time was measured using a stopwatch. Multiple trials were conducted with varying acceleration and velocity parameters to compare **experimental results with theoretical predictions**.
+
+#### **Inverse Kinematics Environment Setup**
+
+To support further research on manipulator control, a software environment for **inverse kinematics experimentation** was established. This involved configuring a **Google Colab notebook** and setting up the **ROS-based XArm development packages (xarm_ros)** from GitHub to enable simulation and algorithm development.
+
+#### **Technologies Used**
+
+* MATLAB
+* Denavit–Hartenberg Modeling
+* Forward & Inverse Kinematics
+* Joint Space Trajectory Planning
+* ROS / xarm_ros
+* XArm Studio
+
+---
+
+If you'd like, I can also convert this into a **proper GitHub README structure** (with sections like *Overview, Experiments, Results, How to Run, Repository Structure*), which will make your repository look **much more professional to robotics recruiters**.
+
