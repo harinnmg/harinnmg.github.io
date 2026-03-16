@@ -1,43 +1,88 @@
-Here is a **refined GitHub / portfolio-ready version** of your updated description. I kept it **technical, concise, and professional**, while still showing the experimental depth.
+
+# 1. Short Portfolio Description
+
+### **Kinematics, Trajectory Planning, and Data-Driven Inverse Kinematics for XArm 5 Lite**
+
+Developed a complete experimental framework for analyzing the **kinematics and motion planning of the XArm 5 Lite 5-DoF robotic manipulator**. The work involved deriving **Denavit–Hartenberg (DH) parameters**, implementing **forward kinematics in MATLAB**, and validating theoretical end-effector positions using the physical robot through **XArm Studio**.
+
+Implemented **joint-space trajectory planning using a trapezoidal velocity profile** and experimentally compared theoretical motion duration with real robot execution times under varying velocity and acceleration parameters.
+
+Additionally, explored **machine learning–based inverse kinematics**, generating training datasets using forward kinematics and evaluating **25 regression algorithms** to predict joint configurations from end-effector coordinates. Results showed that **Gaussian Regression and Support Vector Machines outperformed deep learning approaches** in prediction accuracy.
+
+**Technologies:** MATLAB, ROS, XArm Studio, Machine Learning Regression Models, DH Modeling, Robot Kinematics, Trajectory Planning.
+github link**https://github.com/harinnmg/xarm5-manipulator-experiments
 
 ---
 
-### **Kinematics and Trajectory Planning for the XArm 5 Lite Manipulator**
+# 2. Detailed Portfolio Description
 
-This project presents a series of robotics experiments focused on **kinematic modeling, experimental validation, and joint-space trajectory planning** for the **5-DoF XArm 5 Lite robotic manipulator**.
+### **Kinematic Modeling, Trajectory Planning, and Machine Learning–Based Inverse Kinematics for XArm 5 Lite Manipulator**
 
-#### **Forward Kinematics and DH Parameter Derivation**
+This project investigates the **kinematic modeling, motion planning, and data-driven inverse kinematics** of the **XArm 5 Lite collaborative robotic manipulator**. The work combines theoretical robotics modeling with experimental validation on a physical robot platform.
 
-The first phase of the project involved deriving the **Denavit–Hartenberg (DH) parameters** for the manipulator and establishing the **forward kinematics model**. To accurately represent the physical robot, joint angle offsets (**T2_offset, T3_offset, T4_offset**) were introduced to compensate for the difference between the robot’s mathematical reference configuration and its actual mechanical zero position.
+---
 
-Using these corrected joint variables, **MATLAB scripts** were developed to define the DH parameters (*d, θ, a, α*) and compute the individual homogeneous transformation matrices (**M1–M5**). Multiplying these matrices yielded the final transformation representing the **end-effector pose**.
+## **Forward Kinematics and DH Parameter Modeling**
 
-The theoretical model was validated experimentally using the **physical XArm 5 Lite robot** through **XArm Studio**, where joint configurations were set using the interface sliders and the resulting end-effector position was compared with the MATLAB calculations.
+The first phase focused on establishing the **forward kinematic model** of the manipulator using the **Denavit–Hartenberg (DH) convention**. Accurate DH parameters were derived for all five joints of the robot.
 
-#### **Joint Space Trajectory Planning**
+Since the mechanical zero configuration of the robot differs from the mathematical reference configuration used in kinematic modeling, **joint offsets (T2_offset, T3_offset, T4_offset)** were introduced to align the physical system with the theoretical model.
 
-The second phase focused on **joint-space trajectory generation** to achieve smooth motion between two joint configurations. A **trapezoidal velocity profile** was implemented to move the first joint from **30° to 75°**, dividing the motion into three phases:
+Using these parameters, **MATLAB scripts were developed to compute homogeneous transformation matrices** for each joint. The transformation matrices were sequentially multiplied to obtain the final **end-effector pose with respect to the base frame**.
+
+To validate the model, several joint configurations were tested on the **physical XArm 5 Lite robot using XArm Studio**. The experimentally observed end-effector positions were compared with MATLAB calculations to verify the correctness of the derived kinematic model.
+
+---
+
+## **Joint-Space Trajectory Planning**
+
+The second phase investigated **joint-space trajectory generation** using a **trapezoidal velocity profile**, a widely used method for smooth robotic motion.
+
+A motion task was defined where the first joint moved from **30° to 75°**. The motion was divided into three phases:
 
 * Acceleration
 * Constant velocity
 * Deceleration
 
-Based on the selected velocity and acceleration parameters, the theoretical motion duration was calculated as **3.25 seconds**. The trajectory was then executed on the physical robot, and the actual execution time was measured using a stopwatch. Multiple trials were conducted with varying acceleration and velocity parameters to compare **experimental results with theoretical predictions**.
+Using predefined acceleration and velocity parameters, the **theoretical trajectory duration was calculated as 3.25 seconds**.
 
-#### **Inverse Kinematics Environment Setup**
+The same trajectory was then executed on the physical robot using **block-based programming in XArm Studio**, and the **actual execution time was measured using a stopwatch**. Multiple trials were conducted with different motion parameters to analyze the difference between theoretical predictions and real robot behavior.
 
-To support further research on manipulator control, a software environment for **inverse kinematics experimentation** was established. This involved configuring a **Google Colab notebook** and setting up the **ROS-based XArm development packages (xarm_ros)** from GitHub to enable simulation and algorithm development.
-
-#### **Technologies Used**
-
-* MATLAB
-* Denavit–Hartenberg Modeling
-* Forward & Inverse Kinematics
-* Joint Space Trajectory Planning
-* ROS / xarm_ros
-* XArm Studio
+This experiment provided practical insight into **robot motion control, actuator limits, and dynamic response of robotic manipulators**.
 
 ---
 
-If you'd like, I can also convert this into a **proper GitHub README structure** (with sections like *Overview, Experiments, Results, How to Run, Repository Structure*), which will make your repository look **much more professional to robotics recruiters**.
+## **Machine Learning–Based Inverse Kinematics**
+
+In addition to classical kinematic methods, this project explored a **data-driven approach for solving inverse kinematics**.
+
+A large dataset was generated by computing forward kinematics for numerous joint configurations using the DH model. The dataset mapped **end-effector Cartesian coordinates to corresponding joint angles**.
+
+Instead of relying solely on neural networks, the study evaluated **25 different machine learning regression algorithms** to determine the most accurate model for predicting joint angles.
+
+Key findings included:
+
+* **Gaussian Regression and Support Vector Machines achieved higher accuracy** than deep learning models.
+* Prediction accuracy varied across joints, with **Joint 2 showing the highest reliability**.
+* Data-driven models can provide robust solutions for inverse kinematics, particularly in cases where traditional analytical solutions are difficult or prone to singularities.
+
+---
+
+## **Simulation and Development Environment**
+
+To support further experimentation, a **robotics development environment was established using ROS and the xarm_ros packages**. A **Google Colab notebook** was also configured for rapid experimentation and algorithm development.
+
+---
+
+## **Technologies and Tools**
+
+* MATLAB
+* ROS / xarm_ros
+* XArm Studio
+* Denavit–Hartenberg Modeling
+* Forward & Inverse Kinematics
+* Joint-Space Trajectory Planning
+* Machine Learning Regression Models
+
+---
 
