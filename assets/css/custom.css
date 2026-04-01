@@ -3,13 +3,13 @@
    ======================================================== */
 
 :root {
-    --bg-dark: #0a0f16;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --border-glass: rgba(255, 255, 255, 0.1);
-    --text-main: #e2e8f0;
-    --text-muted: #94a3b8;
-    --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-    --accent-glow: 0 0 15px rgba(0, 242, 254, 0.4);
+    --bg-dark: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --border-glass: rgba(0, 0, 0, 0.05);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+    --accent-glow: 0 10px 15px -3px rgba(14, 165, 233, 0.1);
 
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -34,7 +34,7 @@ h5,
 h6,
 #logo {
     font-family: var(--font-heading) !important;
-    color: #fff !important;
+    color: var(--text-main) !important;
 }
 
 /* Sections & Wrappers */
@@ -53,7 +53,7 @@ body::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(0, 242, 254, 0.03) 0%, transparent 40%);
+    background: radial-gradient(circle at center, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
     z-index: 0;
     pointer-events: none;
 }
@@ -67,7 +67,7 @@ body::before {
     text-align: center;
     border-bottom: 1px solid var(--border-glass);
     position: relative;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 /* Profile Photo */
@@ -139,10 +139,10 @@ body::before {
 
 #nav a:hover,
 #nav li.current a {
-    color: #fff !important;
-    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main) !important;
+    background: rgba(0, 0, 0, 0.03);
     border-color: var(--border-glass) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transform: translateY(-2px);
 }
 
@@ -160,7 +160,7 @@ header.major {
 header.major h2 {
     font-size: 2.2rem !important;
     font-weight: 700 !important;
-    color: #fff !important;
+    color: var(--text-main) !important;
     position: relative;
     display: inline-block;
     padding-bottom: 12px;
@@ -228,9 +228,9 @@ header.major:not(.center) h2::after {
 
 .project-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(0, 242, 254, 0.4);
-    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15), 0 5px 15px rgba(0, 0, 0, 0.5);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .project-card img {
@@ -250,7 +250,7 @@ header.major:not(.center) h2::after {
 .project-card h3 {
     font-size: 1.4rem;
     margin-bottom: 12px;
-    color: #fff;
+    color: var(--text-main);
     font-weight: 600;
 }
 
@@ -264,8 +264,8 @@ header.major:not(.center) h2::after {
 
 /* Buttons */
 .button {
-    background: var(--bg-card) !important;
-    color: #fff !important;
+    background: #fff !important;
+    color: var(--text-main) !important;
     border: 1px solid var(--border-glass) !important;
     border-radius: 30px !important;
     padding: 12px 28px !important;
@@ -337,11 +337,11 @@ header.major:not(.center) h2::after {
 }
 
 .skills-tags span:hover {
-    background: rgba(0, 242, 254, 0.1);
-    border-color: rgba(0, 242, 254, 0.4);
-    color: #fff;
+    background: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.4);
+    color: var(--text-main);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: var(--accent-glow);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
 }
 
 /* =========================
@@ -359,7 +359,7 @@ ul li {
 }
 
 ol li i {
-    color: #fff;
+    color: var(--text-main);
 }
 
 #fundamentals ul li {
@@ -368,7 +368,7 @@ ol li i {
 
 /* Footer Fixes */
 #footer {
-    background: #06090d !important;
+    background: #f1f5f9 !important;
     border-top: 1px solid var(--border-glass);
     padding: 40px 0 !important;
     color: var(--text-muted) !important;
@@ -382,8 +382,8 @@ ol li i {
 
 #footer ul.icons li a:hover {
     color: #fff !important;
-    border-color: rgba(0, 242, 254, 0.5) !important;
-    background: rgba(0, 242, 254, 0.1) !important;
+    border-color: transparent !important;
+    background: var(--accent-gradient) !important;
     box-shadow: var(--accent-glow);
 }
 
@@ -410,8 +410,8 @@ ol li i {
 
 #contact .social-icons .icon:hover {
     color: #fff !important;
-    border-color: rgba(0, 242, 254, 0.5) !important;
-    background: rgba(0, 242, 254, 0.1) !important;
+    border-color: transparent !important;
+    background: var(--accent-gradient) !important;
     box-shadow: var(--accent-glow);
 }
 
