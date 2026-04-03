@@ -1,15 +1,27 @@
 /* ========================================================
-   MODERN UI OVERRIDES (DARK THEME + GLASSMORPHISM)
+   MODERN UI OVERRIDES (PROFESSIONAL LIGHT THEME)
    ======================================================== */
 
 :root {
-    --bg-dark: #f8fafc;
-    --bg-card: rgba(255, 255, 255, 0.7);
-    --border-glass: rgba(0, 0, 0, 0.05);
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-    --accent-glow: 0 10px 15px -3px rgba(14, 165, 233, 0.1);
+    /* Background */
+    --bg-dark: #f4f6f9;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-footer: #e8edf4;
+
+    /* Borders */
+    --border-glass: rgba(30, 41, 59, 0.08);
+
+    /* Text */
+    --text-main: #0f1f3d;
+    --text-muted: #5a6a85;
+
+    /* Accent: Deep Navy → Teal gradient (professional & trustworthy) */
+    --accent-gradient: linear-gradient(135deg, #1e3a5f 0%, #0f766e 100%);
+    --accent-glow: 0 8px 24px -4px rgba(15, 118, 110, 0.18);
+
+    /* Secondary accent for hover hints */
+    --accent-soft: rgba(15, 118, 110, 0.08);
+    --accent-border: rgba(15, 118, 110, 0.3);
 
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -53,7 +65,8 @@ body::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at 30% 20%, rgba(30, 58, 95, 0.04) 0%, transparent 60%), 
+                radial-gradient(circle at 70% 80%, rgba(15, 118, 110, 0.04) 0%, transparent 60%);
     z-index: 0;
     pointer-events: none;
 }
@@ -86,7 +99,7 @@ body::before {
 
 .profile-photo:hover {
     transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+    box-shadow: 0 0 28px rgba(15, 118, 110, 0.45);
 }
 
 /* Name (Main Title) */
@@ -140,15 +153,15 @@ body::before {
 #nav a:hover,
 #nav li.current a {
     color: var(--text-main) !important;
-    background: rgba(0, 0, 0, 0.03);
-    border-color: var(--border-glass) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background: var(--accent-soft);
+    border-color: var(--accent-border) !important;
+    box-shadow: 0 4px 15px rgba(15, 118, 110, 0.08);
     transform: translateY(-2px);
 }
 
 #nav li.current a {
-    background: rgba(0, 242, 254, 0.1);
-    border-color: rgba(0, 242, 254, 0.3) !important;
+    background: var(--accent-soft);
+    border-color: var(--accent-border) !important;
     box-shadow: var(--accent-glow);
 }
 
@@ -228,8 +241,8 @@ header.major:not(.center) h2::after {
 
 .project-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(37, 99, 235, 0.2);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-border);
+    box-shadow: 0 20px 30px -8px rgba(15, 118, 110, 0.14), 0 8px 10px -6px rgba(30, 58, 95, 0.06);
     background: rgba(255, 255, 255, 0.9);
 }
 
@@ -307,7 +320,8 @@ header.major:not(.center) h2::after {
 }
 
 .hero-actions .button.secondary:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: var(--accent-soft) !important;
+    border-color: var(--accent-border) !important;
 }
 
 /* =========================
@@ -337,11 +351,11 @@ header.major:not(.center) h2::after {
 }
 
 .skills-tags span:hover {
-    background: rgba(37, 99, 235, 0.1);
-    border-color: rgba(37, 99, 235, 0.4);
+    background: var(--accent-soft);
+    border-color: var(--accent-border);
     color: var(--text-main);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.12);
 }
 
 /* =========================
@@ -368,7 +382,7 @@ ol li i {
 
 /* Footer Fixes */
 #footer {
-    background: #f1f5f9 !important;
+    background: var(--bg-footer) !important;
     border-top: 1px solid var(--border-glass);
     padding: 40px 0 !important;
     color: var(--text-muted) !important;
