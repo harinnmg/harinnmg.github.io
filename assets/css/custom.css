@@ -246,7 +246,8 @@ header.major:not(.center) h2::after {
     background: rgba(255, 255, 255, 0.9);
 }
 
-.project-card img {
+.project-card img,
+.project-card video {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -256,7 +257,8 @@ header.major:not(.center) h2::after {
     transition: transform 0.3s ease;
 }
 
-.project-card:hover img {
+.project-card:hover img,
+.project-card:hover video {
     transform: scale(1.02);
 }
 
