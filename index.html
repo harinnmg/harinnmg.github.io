@@ -192,15 +192,35 @@
                         </div>
                     </div>
 
-                    <!-- NVIDIA Isaac Sim Project -->
+                    <!-- NVIDIA Isaac Sim RL Navigation Project -->
                     <div class="project-card">
-                        <video src="ISAACSIM/isaac_sim_custom_robot.webm" autoplay loop muted playsinline></video>
+                        <video src="ISAACSIM/testing_video.webm" autoplay loop muted playsinline></video>
                         <div class="card-content">
-                            <h3>NVIDIA Isaac Sim Simulation</h3>
-                            <p>Showcasing proficiency in NVIDIA Isaac Sim by spawning a custom robot in a custom environment, visualizing real-time sensor outputs, and executing remote control navigation.</p>
+                            <h3>RL Navigation Training in NVIDIA Isaac Sim</h3>
+                            <p>Trained a PPO navigation policy from scratch in Isaac Lab (2048 parallel envs, LiDAR +
+                                virtual-potential-field observations), exported it to TorchScript, and deployed it on
+                                a ROS 2 robot in Ignition Gazebo for closed-loop goal-reaching and obstacle
+                                avoidance.</p>
                         </div>
                         <div class="card-footer">
-                            <a href="ISAACSIM/isaac_sim_custom_robot.webm" target="_blank" class="button"><i
+                            <a href="ISAACSIM/testing_video.webm" target="_blank" class="button"><i
+                                    class="fas fa-video"></i> Watch Video</a>
+                        </div>
+                    </div>
+
+                    <!-- VLM-Based Navigation Perception Project -->
+                    <div class="project-card">
+                        <img src="vlm_perception/vlm_perception_thumbnail.jpg" alt="VLM-Based Navigation Perception">
+                        <div class="card-content">
+                            <h3>VLM-Based Perception for Robot Navigation</h3>
+                            <p>Built a self-updating semantic perception layer for a ROS 2/Nav2 patrol robot: a
+                                gripper camera feeds each visited location to a locally hosted vision-language model
+                                (Gemma via Ollama), which writes a live scene description back into the POI database
+                                so an LLM-based mission planner reasons over up-to-date semantic context, not just
+                                static map geometry.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="vlm_perception/vlm_navigation_demo.webm" target="_blank" class="button"><i
                                     class="fas fa-video"></i> Watch Video</a>
                         </div>
                     </div>
